@@ -27,7 +27,7 @@ func _process(delta):
 		match_velocity()
 		limit_speed()
 		avoid_edges()
-	var angle = global_position.direction_to(Vector2(position.x + dx, position.y + dy)).angle()
+	var angle = global_position.direction_to(Vector2(position.x + dx, position.y + dy)).angle() + PI
 	global_rotation = move_toward(global_rotation,angle,delta*rotate_speed)
 	position.x += dx
 	position.y += dy

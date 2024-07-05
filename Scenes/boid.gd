@@ -27,10 +27,10 @@ func _process(delta):
 		match_velocity()
 		limit_speed()
 		avoid_edges()
+	var angle = global_position.direction_to(Vector2(position.x + dx, position.y + dy)).angle()
+	global_rotation = move_toward(global_rotation,angle,delta*rotate_speed)
 	position.x += dx
 	position.y += dy
-	var angle = global_position.direction_to(Vector2(dx,dy)).angle()
-	global_rotation = move_toward(global_rotation,angle,delta*rotate_speed)
 
 # Find the center of mass of the other boids and adjust velocity slightly to point towards the center of mass.
 func fly_towards_center():
